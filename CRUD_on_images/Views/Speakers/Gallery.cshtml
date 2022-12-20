@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CRUD_on_images.Models.Speaker>
+
+@{
+    ViewData["Title"] = "Gallery";
+}
+<head>
+    <link rel="stylesheet" href="~/css/Gallery.css" asp-append-version="true" />
+</head>
+<!--Gallery start-->
+    <input type="radio" name="Photos" id="check1" checked />
+    <input type="radio" name="Photos" id="check2" />
+    <input type="radio" name="Photos" id="check3" />
+    <input type="radio" name="Photos" id="check4" />
+
+    <div class="top-content">
+      <div class="labels">
+        <label for="check1">All Photos</label>
+        <label for="check2">Wedding</label>
+        <label for="check3">Nature</label>
+        <label for="check4">Couples</label>
+      </div>
+    </div>
+    <div class="gallery" id="gallery">
+     @foreach (var item in Model){
+      <div class="gallery-item" id="@item.Venue">
+        <div class="content">
+          <img src="@FileLocation.RetriveFileFromFolder@item.ProfilePicture" alt="" asp-append-version="true" />
+        </div>
+      </div>
+      }
+    </div>
